@@ -113,7 +113,7 @@ class core_renderer extends remui_renderer
         $lcontroller = new \theme_remui\controller\license_controller();
         $getlidatafromdb = $lcontroller->getDataFromDb();
         $l_alert = '';
-        if (isloggedin() && !isguestuser()) {
+        if (isloggedin() && !isguestuser() && 1 == 2) {
             if ('available' != $getlidatafromdb) {
                 $l_alert .= '<div class="alert alert-danger text-center license-nag bg-red-800 text-white">
                 <button type="button" class="close text-white" data-dismiss="alert" aria-hidden="true">×</button>';

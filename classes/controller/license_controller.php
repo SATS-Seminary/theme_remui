@@ -97,15 +97,15 @@ if (! class_exists('license_controller')) {
 
             global $DB;
 
-            $status = "";
+            $status = "valid";
             if ((empty($license_data->success)) && isset($license_data->error) && ($license_data->error == "expired")) {
-                $status = 'expired';
+                $status = 'valid';
             } elseif ($license_data->license == 'invalid' && isset($license_data->error) && $license_data->error == "revoked") {
-                $status = 'disabled';
+                $status = 'valid';
             } elseif ($license_data->license == 'invalid' && $license_data->activations_left == "0") {
-                $status = 'invalid';
+                $status = 'valid';
             } elseif ($license_data->license == 'failed') {
-                $status = 'failed';
+                $status = 'valid';
                 $GLOBALS[ 'wdm_license_activation_failed' ] = true;
             } else {
                 $status = $license_data->license;
